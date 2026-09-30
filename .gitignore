@@ -1,0 +1,145 @@
+# ==========================================
+# OS / System
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# Linux
+.directory
+
+
+# ==========================================
+# IDE / Editors
+# ==========================================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/.nb-gradle/
+
+# Visual Studio
+.vs/
+
+
+# ==========================================
+# Java / Maven / Spring Boot
+# ==========================================
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Compiled Java
+*.class
+
+# Logs
+*.log
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# Spring Boot generated files
+spring.log
+
+
+# ==========================================
+# Node / React / Vite
+# ==========================================
+
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Vite
+.vite/
+
+# npm
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package manager caches
+.yarn/cache/
+.yarn/unplugged/
+.yarn/install-state.gz
+.pnpm-store/
+
+
+# ==========================================
+# Environment Variables
+# ==========================================
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep example environment files
+!.env.example
+
+
+# ==========================================
+# Coverage / Testing
+# ==========================================
+
+coverage/
+*.lcov
+
+# Jest
+.jest/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+
+# ==========================================
+# Temporary / Generated Files
+# ==========================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*~
