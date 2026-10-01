@@ -1,0 +1,17 @@
+# Git
+.git
+.gitignore
+
+# IDE / Editor
+.idea
+*.iml
+.vscode
+
+# Build outputs
+target
+frontend-react/node_modules
+frontend-react/dist
+
+# Logs & temp
+*.log
+.DS_Store

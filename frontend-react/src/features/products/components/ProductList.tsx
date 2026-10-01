@@ -1,4 +1,4 @@
-import { useProducts } from "../hooks/useProducts";
+
 import type { Product } from "../types/product.types";
 import { ProductCard } from "./ProductCard";
 

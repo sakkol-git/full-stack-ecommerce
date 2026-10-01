@@ -2,6 +2,7 @@ package com.example.full_stack.service;
 
 import com.example.full_stack.dto.ProductRequest;
 import com.example.full_stack.dto.ProductResponse;
+import com.example.full_stack.exception.ProductNotFoundException;
 import com.example.full_stack.mapper.ProductMapper;
 import com.example.full_stack.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,11 @@ public class ProductService {
     public ProductResponse createProduct(ProductRequest request) {
         var product = productMapper.toProduct(request);
        return productMapper.toProductResponse(productRepository.save(product));
+    }
+
+    public ProductResponse updateProduct(ProductRequest request, Long id) {
+        var product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException(id));
+        var updatedProduct = productMapper.toProduct(request);
+        return productMapper.toProductResponse(productRepository.save(updatedProduct));
     }
 }
