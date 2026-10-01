@@ -1,12 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { ProductDashboardComponent } from './components/product-dashboard.component';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [ProductDashboardComponent],
+  template: '<app-product-dashboard />',
 })
-export class App {
-  protected readonly title = signal('frontend-angular');
-}
+export class App {}

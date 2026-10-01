@@ -1,0 +1,75 @@
+<!-- ─── ANGULAR TEMPLATE: ProductDashboardComponent ─────────────────────────── -->
+<!-- Uses Angular 17+ @if control flow and event binding syntax                    -->
+<!-- Identical Tailwind classes to React and Vue versions                          -->
+
+<div class="min-h-screen bg-gray-900 text-white">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-gray-900/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🛍️</span>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-white">Product Catalog</h1>
+          <p class="text-xs text-indigo-400">🅰️ Angular 22 + Spring Boot</p>
+        </div>
+      </div>
+      <button
+        id="add-product-btn"
+        (click)="handleAddClick()"
+        class="flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-500 active:scale-95"
+      >
+        <span class="text-lg">+</span> Add Product
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-7xl px-6 py-8">
+    <!-- Error Banner -->
+    @if (error) {
+      <div class="mb-6 flex items-center gap-3 rounded-xl border border-red-500/30 bg-red-900/20 px-5 py-4">
+        <span class="text-xl">⚠️</span>
+        <p class="text-sm text-red-300">{{ error }}</p>
+        <button (click)="dismissError()" class="ml-auto text-red-400 hover:text-red-200">✕</button>
+      </div>
+    }
+
+    <!-- Stats Bar -->
+    @if (!isLoading) {
+      <div class="mb-8 flex items-center gap-6">
+        <div class="rounded-xl bg-gray-800 px-5 py-3 ring-1 ring-white/5">
+          <p class="text-xs text-gray-400">Total Products</p>
+          <p class="text-2xl font-bold text-indigo-400">{{ products.length }}</p>
+        </div>
+      </div>
+    }
+
+    <!--
+      Dumb Component: ProductListComponent
+      Props flow DOWN via [products] / [isLoading] (property binding).
+      Events bubble UP via (edit) / (delete) (event binding).
+
+      React equivalent:    <ProductList products={products} isLoading={isLoading} onEdit={handleEdit} onDelete={handleDelete} />
+      Vue equivalent:      <ProductList :products="products" :is-loading="isLoading" @edit="handleEdit" @delete="handleDelete" />
+    -->
+    <app-product-list
+      [products]="products"
+      [isLoading]="isLoading"
+      (edit)="handleEdit($event)"
+      (delete)="handleDelete($event)"
+    />
+
+    <!--
+      Conditional form modal — @if controls whether the component is in the DOM.
+      React equivalent:    {showForm && <ProductForm ... />}
+      Vue equivalent:      <ProductForm v-if="showForm" ... />
+    -->
+    @if (showForm) {
+      <app-product-form
+        [editingProduct]="editingProduct"
+        (save)="handleSave($event)"
+        (cancel)="handleCancel()"
+      />
+    }
+  </main>
+</div>

@@ -1,0 +1,38 @@
+<div class="mt-6">
+  <!-- TODO: Use @if (isLoading) -->
+  @if (isLoading) {
+    <div class="flex justify-center p-12">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>
+  }
+
+  <!-- TODO: Use @if to check if not loading and products array is empty -->
+  @if (!isLoading && products.length === 0) {
+    <div class="text-center p-12 text-gray-500 bg-gray-50 rounded-lg">
+      No products found.
+    </div>
+  }
+
+  <!-- TODO: Use @if to check if not loading and we have products -->
+  @if (!isLoading && products.length > 0) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- TODO: Loop over products using @for (product of products; track product.id) -->
+      @for (product of products; track product.id) {
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+          <!-- In Angular, we bind attributes using [src] instead of :src -->
+          <img [src]="product.image || 'https://placehold.co/600x400?text=No+Image'" class="w-full h-48 object-cover" />
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-2">
+              <!-- In Angular, we use double mustaches for text interpolation, just like Vue -->
+              <h3 class="text-lg font-semibold text-gray-900">{{ product.name }}</h3>
+              <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">${{ product.price }}</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
+          </div>
+        </div>
+      }
+
+    </div>
+  }
+</div>

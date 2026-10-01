@@ -1,14 +1,5 @@
+import ProductDashboard from './views/ProductDashboard';
 
-import './App.css'
-import { ProductManager } from './features/products/components/ProductManager';
-
-function App() {
-  return(
-    <main>
-      <h1>Product</h1>
-      <ProductManager/>
-    </main>
-  );
+export default function App() {
+  return <ProductDashboard />;
 }
-
-export default App
